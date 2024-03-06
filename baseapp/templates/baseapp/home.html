@@ -1,0 +1,101 @@
+{% extends 'base.html' %}
+{% block title %}
+{% if action == 'update' %}
+Update
+{% else %}
+Home
+{% endif %}
+{% endblock %}
+
+{% block content %}
+    <div class="maincontainer">
+        <div class="formcontainer">
+            <div>
+                <h1>Add Visitor Record</h1>
+            </div>
+            <form method="post" class="form">
+                {% csrf_token %}
+                <div class="inputbox">
+                    <span>
+                    {{form.visitor_name.label}}
+                    </span>
+                    {{form.visitor_name}}
+                    <div class="error">
+                        {% if form.visitor_name.errors %}
+                        {% for i in form.visitor_name.errors %}
+                        <small>{{ i }}</small>
+                        {% endfor %}
+                        {% endif %}
+                    </div>
+                </div>
+
+                <div class="inputbox">
+                    <span>
+                        {{form.visitor_location.label}}
+                    </span>
+                    {{form.visitor_location}}
+                    <div class="error">
+                        {% if form.visitor_location.errors %}
+                        {% for i in form.visitor_location.errors %}
+                        <small>{{ i }}</small>
+                        {% endfor %}
+                        {% endif %}
+                    </div>
+                </div>
+
+                <div class="inputbox">
+                    <span>
+                        {{form.visitor_mobile_number.label}}
+                    </span>
+                    {{form.visitor_mobile_number}}
+                    <div class="error">
+                        {% if form.visitor_mobile_number.errors %}
+                        {% for i in form.visitor_mobile_number.errors %}
+                        <small>{{ i }}</small>
+                        {% endfor %}
+                        {% endif %}
+                    </div>
+                </div>
+                {% if action == 'update' %}
+                    <button type="submit">Update</button>
+                {% else %}
+                    <button type="submit">Add</button>
+                {% endif %}
+            </form>
+        </div>
+        {% if not action == 'update' %}
+        <div class="visitorDetails">
+            <div>
+                <h1>
+                    Visitor Record Table
+                </h1>
+            </div>
+
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th>Visitor Name</th>
+                        <th>Visitor Location</th>
+                        <th>Visitor Mobile Number</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for visitor_detail in visitor_details %}
+                    <tr>
+                        <td>{{ visitor_detail.visitor_name }}</td>
+                        <td>{{ visitor_detail.visitor_location }}</td>
+                        <td>{{ visitor_detail.visitor_mobile_number }}</td>
+                        <td>
+                            <a class="update_visitor" href="{% url 'update_visitor' visitor_id=visitor_detail.id%}">Update Visitor</a>
+                            <a class="delete_visitor" href="{% url 'delete_visitor' visitor_id=visitor_detail.id%}">Delete Visitor</a>
+                        </td>
+
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        {% endif %}
+    </div>
+{% endblock %}

@@ -1,0 +1,127 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+body{
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    padding: 2rem;
+}
+main{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+.maincontainer{
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 5rem;
+}
+
+.form{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.inputbox input{
+    padding: 8px 20px;
+    width: 100%;
+    margin-top: 5px;
+}
+.inputbox span{
+    font-weight: bold;
+}
+
+
+.form button{
+    padding: 10px;
+    cursor: pointer;
+    background-color: black;
+    color: white;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+}
+.form button:hover{
+    background-color: rgba(0, 0, 0, 0.83);
+
+}
+.error{
+    color: red;
+}
+.formcontainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+.visitorDetails{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 1rem;
+}
+.visitorDetails div{
+    width: 100%;
+    max-width: 80%;
+}
+table {
+    width: 100%;
+    max-width: 80%;
+    border-collapse: collapse;
+    border: 1px solid #dddddd;
+}
+
+th, td {
+    padding: 20px;
+    text-align: left;
+    border-bottom: 1px solid #dddddd;
+}
+
+th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+}
+.delete_visitor, .update_visitor{
+    background-color: black;
+    color: white;
+    padding: 10px;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.delete_visitor{
+    background-color: red;
+    color: white;
+}
+.update_visitor:hover{
+    background-color: rgba(0, 0, 0, 0.749);
+}
+.delete_visitor:hover{
+    background-color: rgba(255, 0, 0, 0.817);
+}
+.delete_visitor a, .update_visitor a{
+    color: white;
+}
+.message {
+    padding: 10px;
+    background-color: #dff0d8;
+    border: 1px solid #d6e9c6;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+.close {
+    float: right;
+    cursor: pointer;
+    margin-left: 10px;
+}
